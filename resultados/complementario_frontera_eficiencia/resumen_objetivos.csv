@@ -1,0 +1,7 @@
+objetivo,criterio,candidatos_elegibles,puntos_frontera,menor_ancho_frontera,menor_iteracion_frontera,puntos_modelo
+0.9,media,128,3,4,25,0
+0.9,ic95_inferior,124,4,4,25,0
+0.95,media,104,3,7,25,0
+0.95,ic95_inferior,101,4,7,25,0
+0.96,media,78,4,8,25,0
+0.96,ic95_inferior,73,3,10,50,0

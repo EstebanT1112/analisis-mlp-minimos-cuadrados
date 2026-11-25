@@ -1,0 +1,104 @@
+{
+  "tipo": "comprobacion final con prueba oficial",
+  "configuracion_congelada": "configuracion_prueba_oficial_congelada.json",
+  "sha256_configuracion_congelada": "D15E4CC7A1EEB9D714005C40645FC651E7089ECDB3C3E44C59D0B57FE5A4C999",
+  "archivo_entrenamiento_interno": "entrenamiento_interno.csv",
+  "archivo_validacion": "validacion.csv",
+  "archivo_prueba_oficial": "prueba_oficial.csv",
+  "sha256_entrenamiento_interno": "9746E6212B7D65FE41196B29508BFB52F9EA89A47AF2825EAFDE2C3BF56AB540",
+  "sha256_validacion": "65A5489166C35ED0343FE153AAC60999897E36DF3A28FB9763777D04C46A7F78",
+  "sha256_prueba_oficial": "2AC6123EC4B84031C33E9D009BC7E3F69BE77E4A5D1E5032ABB9E9CDE694F6C3",
+  "entrenamiento_final_observaciones": 3823,
+  "prueba_oficial_observaciones": 1797,
+  "orden_entrenamiento_final": "id_original TRA_0001 a TRA_3823",
+  "normalizacion": "division de los pixeles por 16",
+  "configuraciones": [
+    {
+      "id": "principal_compacto_H14",
+      "analisis": "principal",
+      "rol": "candidato_compacto",
+      "ancho": 14,
+      "iteraciones": "regla_convergencia_hasta_1600",
+      "parametros": 1060,
+      "metodo_entrenamiento": "fit"
+    },
+    {
+      "id": "principal_referencia_H25",
+      "analisis": "principal",
+      "rol": "referencia_mayor_ancho",
+      "ancho": 25,
+      "iteraciones": "regla_convergencia_hasta_1600",
+      "parametros": 1885,
+      "metodo_entrenamiento": "fit"
+    },
+    {
+      "id": "complementario_parametros_H10_T200",
+      "analisis": "complementario",
+      "rol": "menor_cantidad_parametros_frontera_96_conservadora",
+      "ancho": 10,
+      "iteraciones": 200,
+      "parametros": 760,
+      "metodo_entrenamiento": "partial_fit_por_epoca"
+    },
+    {
+      "id": "complementario_intermedio_H11_T100",
+      "analisis": "complementario",
+      "rol": "compromiso_intermedio_frontera_96_conservadora",
+      "ancho": 11,
+      "iteraciones": 100,
+      "parametros": 835,
+      "metodo_entrenamiento": "partial_fit_por_epoca"
+    },
+    {
+      "id": "complementario_iteraciones_H14_T50",
+      "analisis": "complementario",
+      "rol": "menor_iteraciones_frontera_96_conservadora",
+      "ancho": 14,
+      "iteraciones": 50,
+      "parametros": 1060,
+      "metodo_entrenamiento": "partial_fit_por_epoca"
+    }
+  ],
+  "semillas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "hiperparametros_comunes": {
+    "activacion": "tanh",
+    "solver": "adam",
+    "learning_rate_init": 0.001,
+    "batch_size": 64,
+    "alpha": 0.0001,
+    "shuffle": true
+  },
+  "protocolo_principal": {
+    "metodo_entrenamiento": "fit",
+    "max_iter": 1600,
+    "tol": 0.0001,
+    "n_iter_no_change": 10,
+    "early_stopping": false
+  },
+  "protocolo_complementario": {
+    "metodo_entrenamiento": "partial_fit_por_epoca",
+    "continuar_hasta_presupuesto_congelado": true,
+    "evaluar_prueba_solo_al_final_del_presupuesto": true
+  },
+  "ejecuciones_esperadas": 75,
+  "version_python": "3.12.2",
+  "version_numpy": "2.5.5",
+  "version_pandas": "3.1.1",
+  "version_scikit_learn": "1.9.1"
+}

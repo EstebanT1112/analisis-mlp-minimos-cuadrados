@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "fecha_congelamiento": "2026-11-22",
+  "estado_prueba_oficial_al_congelar": "no_utilizada_para_seleccion",
+  "dataset": "UCI Optical Recognition of Handwritten Digits",
+  "entrenamiento_final_observaciones": 3823,
+  "prueba_oficial_observaciones": 1797,
+  "normalizacion": "pixel_dividido_por_16",
+  "semillas": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "configuraciones": [
+    {
+      "id": "principal_compacto_H14",
+      "analisis": "principal",
+      "rol": "candidato_compacto",
+      "ancho": 14,
+      "iteraciones": "regla_convergencia_hasta_1600",
+      "parametros": 1060,
+      "metodo_entrenamiento": "fit"
+    },
+    {
+      "id": "principal_referencia_H25",
+      "analisis": "principal",
+      "rol": "referencia_mayor_ancho",
+      "ancho": 25,
+      "iteraciones": "regla_convergencia_hasta_1600",
+      "parametros": 1885,
+      "metodo_entrenamiento": "fit"
+    },
+    {
+      "id": "complementario_parametros_H10_T200",
+      "analisis": "complementario",
+      "rol": "menor_cantidad_parametros_frontera_96_conservadora",
+      "ancho": 10,
+      "iteraciones": 200,
+      "parametros": 760,
+      "metodo_entrenamiento": "partial_fit_por_epoca"
+    },
+    {
+      "id": "complementario_intermedio_H11_T100",
+      "analisis": "complementario",
+      "rol": "compromiso_intermedio_frontera_96_conservadora",
+      "ancho": 11,
+      "iteraciones": 100,
+      "parametros": 835,
+      "metodo_entrenamiento": "partial_fit_por_epoca"
+    },
+    {
+      "id": "complementario_iteraciones_H14_T50",
+      "analisis": "complementario",
+      "rol": "menor_iteraciones_frontera_96_conservadora",
+      "ancho": 14,
+      "iteraciones": 50,
+      "parametros": 1060,
+      "metodo_entrenamiento": "partial_fit_por_epoca"
+    }
+  ],
+  "hiperparametros_comunes": {
+    "activacion": "tanh",
+    "solver": "adam",
+    "learning_rate_init": 0.001,
+    "batch_size": 64,
+    "alpha": 0.0001,
+    "shuffle": true
+  },
+  "protocolo_principal": {
+    "metodo_entrenamiento": "fit",
+    "max_iter": 1600,
+    "tol": 0.0001,
+    "n_iter_no_change": 10,
+    "early_stopping": false
+  },
+  "protocolo_complementario": {
+    "metodo_entrenamiento": "partial_fit_por_epoca",
+    "continuar_hasta_presupuesto_congelado": true,
+    "evaluar_prueba_solo_al_final_del_presupuesto": true
+  },
+  "metricas_finales": [
+    "precision_media_prueba",
+    "desviacion_estandar_prueba",
+    "precision_minima_prueba",
+    "precision_maxima_prueba",
+    "error_estandar_prueba",
+    "ic95_prueba",
+    "diferencias_pareadas_por_semilla"
+  ],
+  "prohibiciones_post_prueba": [
+    "no_agregar_configuraciones",
+    "no_eliminar_configuraciones_por_resultado_desfavorable",
+    "no_cambiar_semillas_ni_hiperparametros",
+    "no_reajustar_funciones_con_datos_de_prueba",
+    "no_recalcular_frontera_con_datos_de_prueba"
+  ]
+}
