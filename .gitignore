@@ -1,0 +1,21 @@
+# Entorno local
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.log
